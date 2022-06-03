@@ -17,5 +17,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY --from=build app/node_modules node_modules
 COPY --from=build app/chromium chromium
 COPY src .
+COPY config.js .
 USER node
 ENTRYPOINT ["node", "--unhandled-rejections=strict"]
