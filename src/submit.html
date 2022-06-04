@@ -16,33 +16,38 @@
 				margin-bottom: 0.1em;
 			}
 
-			body {
+			form {
 				display: flex;
 				flex-direction: column;
 				align-items: flex-start;
-				gap: 15px;
+				padding: 15px;
+			}
+
+			#url {
+				min-width: 250px;
+				margin-bottom: 10px;
 			}
 		</style>
 	</head>
 	<body>
 		<form id="form" method="POST">
 			<h1>{{ header }}</h1>
+			{{ #msg }}
 			<p>{{ msg }}</p>
-			<label>
-				URL
-				<input
-					type="text"
-					name="url"
-					autofocus
-					required
-					placeholder="URL"
-					value="{{ url }}"
-				/>
-			</label>
+			{{ /msg }}
+			<input
+				id="url"
+				type="text"
+				name="url"
+				autofocus
+				required
+				placeholder="URL"
+				value="{{ url }}"
+			/>
 			{{ #recaptcha_site }}
 			<input type="hidden" name="recaptcha_code" id="recaptcha_code" />
 			{{ /recaptcha_site }}
-			<button type="submit">Submit</button>
+			<input type="submit" />
 		</form>
 		{{ #recaptcha_site }}
 		<script src="https://www.google.com/recaptcha/api.js"></script>

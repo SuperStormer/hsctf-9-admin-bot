@@ -19,4 +19,10 @@ COPY --from=build app/chromium chromium
 COPY src .
 COPY config.js .
 USER node
-ENTRYPOINT ["node", "--unhandled-rejections=strict"]
+
+ENV PORT=8080
+EXPOSE 8080
+
+CMD ["PORT=8080 node --unhandled-rejections=strict submit.js & PORT=8081 node --unhandled-rejections=strict visit.js"]
+ENTRYPOINT [ "/bin/bash" ,"-c"]
+# ENTRYPOINT ["node", "--unhandled-rejections=strict"]
