@@ -7,15 +7,15 @@ const challenges = new Map([
 			title: "Submit Page",
 			header: "Show us what you've created!",
 			timeout: 10 * 1000,
-			urlRegex: /^http:\/\/web1.hsctf.com:8002\//,
+			urlRegex: /^http:\/\/web1.hsctf.com:8002\/display/,
 			handler: async function (url, ctx) {
 				const URL = "http://web1.hsctf.com:8002/";
 				const FLAG = "flag{waterfall}";
 
 				let page = await ctx.newPage();
 				await page.goto(`${URL}/create`);
-				await (await page.querySelector("#login-form > [name=username]")).type(FLAG);
-				await (await page.querySelector("#login-form > [type=submit]")).click();
+				await page.type("#login-form > [name=username]", FLAG);
+				await page.click("#login-form > [type=submit]");
 				await page.waitForNavigation();
 				await page.close();
 				page = await ctx.newPage();
