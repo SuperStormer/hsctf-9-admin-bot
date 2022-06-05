@@ -7,7 +7,7 @@ const challenges = new Map([
 			title: "Submit Page",
 			header: "Show us what you've created!",
 			timeout: 10 * 1000,
-			urlRegex: /^http:\/\/web1.hsctf.com:8002\/display/,
+			urlRegex: /^http:\/\/web1\.hsctf\.com:8002\/display/,
 			handler: async function (url, ctx) {
 				const URL = "http://web1.hsctf.com:8002/";
 				const FLAG = "flag{waterfall}";
