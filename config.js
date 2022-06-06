@@ -10,7 +10,7 @@ const challenges = new Map([
 			urlRegex: /^http:\/\/web1\.hsctf\.com:8002\/display/,
 			handler: async function (url, ctx) {
 				const URL = "http://web1.hsctf.com:8002/";
-				const FLAG = "flag{waterfall}";
+				const FLAG = "flag{waterfall_bfutsftfejpk}";
 
 				let page = await ctx.newPage();
 				await page.goto(`${URL}/create`);
