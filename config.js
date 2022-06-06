@@ -36,7 +36,7 @@ const challenges = new Map([
 				const ADMIN_SECRET =
 					"003db352756e870182e7360ed9d1bb3df2add8989374927a42ef39688c89304d";
 				let page = await ctx.newPage();
-				page.setCookie({
+				await page.setCookie({
 					name: "secret",
 					value: ADMIN_SECRET,
 					url: URL,
